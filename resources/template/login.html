@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="d-flex flex-column vh-100">
+    <!-- Navbar -->
+    <nav class="shadow sticky-top navbar navbar-expand-lg navbar-dark bg-navbar-dark">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="index.html">GAMESTORE</a>
+
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars text-light"></i>
+            </button>
+
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
+                    <li class="nav-item text-center mx-2 mx-lg-1">
+                        <a href="index.html" class="nav-link" aria-current="page" href="#!">
+                            <div>
+                                <i class="fas fa-home fa-lg mb-1"></i>
+                            </div>
+                            Trang Chủ
+                        </a>
+                        <!--
+                    </li>
+                    <li class="nav-item text-center mx-2 mx-lg-1">
+                        <a class="nav-link" href="#!">
+                            <div>
+                                <i class="far fa-envelope fa-lg mb-1"></i>
+                                <span class="badge rounded-pill badge-notification bg-danger">11</span>
+                            </div>
+                            Link
+                        </a>
+                    </li>
+                    <li class="nav-item text-center mx-2 mx-lg-1">
+                        <a class="nav-link disabled" aria-disabled="true" href="#!">
+                            <div>
+                                <i class="far fa-envelope fa-lg mb-1"></i>
+                                <span class="badge rounded-pill badge-notification bg-warning">11</span>
+                            </div>
+                            Disabled
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown text-center mx-2 mx-lg-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <div>
+                                <i class="far fa-envelope fa-lg mb-1"></i>
+                                <span class="badge rounded-pill badge-notification bg-primary">11</span>
+                            </div>
+                            Dropdown
+                        </a> -->
+                        <!-- Dropdown menu -->
+                        <!--
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </li>
+                        </ul>
+                    </li> -->
+                </ul>
+                <!-- Left links -->
+
+                <!-- Right links -->
+                <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+                    <li class="nav-item dropdown text-center mx-2 mx-lg-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <div>
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            Tài Khoản
+                        </a>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('login') }}">
+                                    Đăng nhập
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('signup') }}">
+                                    Đăng ký
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item text-center mx-2 mx-lg-1">
+                        <a class="nav-link" aria-current="page" href="cart.html">
+                            <div>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span class="badge rounded-pill badge-notification bg-info">
+                                    0
+                                </span>
+                            </div>
+                            Giỏ Hàng
+                        </a>
+                    </li>
+                </ul>
+                <!-- Right links -->
+
+                <!-- Search form -->
+                <form action="search.html" method="GET" class="d-flex input-group w-auto ms-lg-3 my-3 my-lg-0">
+                    <input type="search" name="q" class="form-control" placeholder="Tìm kiếm sản phẩm"
+                        aria-label="Search" />
+                    <button class="btn btn-primary" data-bs-ripple-color="dark">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+    <div>
+        <x-header title="Đăng Nhập" />
+    </div>
+    <section class="container backgroundBody pb-5">
+        <div class="container-fluid col-md-5 col-sm-12 mt-4 text-white ">
+            <div class="loginForm col-sm-12 py-4 px-4">
+                <h1 class="text-center">
+                    <stroke class="mb-2">Đăng Nhập</stroke>
+                </h1>
+                <div class="text-center">
+                    <small>
+                        <i>Đăng nhập để được nhiều ưu đãi và bảo mật thông
+                            tin!</i>
+                    </small>
+                </div>
+                <div class="text-center">
+                    @if (Session::has('user_not_found'))
+                        <div class="invalid-feedback d-block" role="alert">
+                            <strong>{{ Session::get('user_not_found') }}</strong>
+                        </div>
+                    @endif
+                </div>
+                <div class="text-center">
+                    @if (Session::has('password_changed'))
+                        <div class="text-success" role="alert">
+                            <strong>{{ Session::get('password_changed') }}</strong>
+                        </div>
+                    @endif
+                </div>
+                <form id="login" action="{{ route('loginUser') }}" method="POST">
+                    @csrf
+                    <div class="form-group pt-3">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input name="email" id="email" type="email" class="form-control" placeholder="Email">
+                        @error('email')
+                            <div class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="form-group pt-3">
+                        <label for="exampleInputPassword1">Mật Khẩu</label>
+                        <input name="password" id="password" type="password" class="form-control"
+                            id="exampleInputPassword1" placeholder="Mật khẩu">
+                        @error('password')
+                            <div class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="form-group pt-4">
+                        <button type="submit" class="btn pt-2 btn-primary col-12">Đăng Nhập</button>
+                    </div>
+                    <div class="container-fluid">
+                        <hr class="border-secondary py-0">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-6 text-center">
+                            <a href="{{ route('loginGoogle') }}">
+                                <button type="button" class="btn pt-2 btn-google col-12">
+                                    <i class="fa-brands fa-google fa-lg" style="color: #ffffff;"></i>
+                                </button>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-6 text-center">
+                            <a href="{{ route('loginFacebook') }}">
+                                <button type="button" class="btn pt-2 btn-facebook col-12">
+                                    <i class="fa-brands fa-facebook fa-lg" style="color: #ffffff;"></i>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+                <div class="text-center pt-2"><a href="{{ route('signup') }}">Bạn chưa có tài khoản?</a></div>
+                <div class="text-center pt-2">
+                    <a href="{{ route('forgotPassword') }}">
+                        Quên mật khẩu?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $(document).ready(function() {
+            $('#login').validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true
+                    }
+                },
+                messages: {
+                    email: {
+                        required: 'Thiếu email',
+                        email: 'Email không hợp lệ'
+                    },
+                    password: {
+                        required: 'Thiếu mật khẩu'
+                    }
+                },
+                errorPlacement: function(error, element) {
+                    error.appendTo(element.parent());
+                },
+                onfocusout: function(element) {
+                    this.element(element);
+                }
+            });
+        });
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-navbar-dark sticky-top">
+        <div class="container">
+            <ul class="nav justify-content-center mb-2">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Trang Chủ</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Điều khoản và dịch vụ</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Chính sách bảo mật</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Về chúng tôi</a></li>
+            </ul>
+            <ul class="nav justify-content-center border-bottom pb-3 mb-4">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="fa-brands fa-facebook fa-2xl"></i></a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="fa-brands fa-discord fa-2xl"></i></a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="fa-brands fa-youtube fa-2xl"></i></a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="fa-brands fa-twitter fa-2xl"></i></a></li>
+            </ul>
+            <p class="text-center text-muted">© 2023 GameStore</p>
+        </div>
+    </footer>
+    <!-- Footer -->
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ee39434323.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        let swiper = new Swiper(".swiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 3,
+                slideShadows: true
+            },
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2
+                },
+                768: {
+                    slidesPerView: 1
+                },
+                1024: {
+                    slidesPerView: 2
+                },
+                1560: {
+                    slidesPerView: 5
+                }
+            }
+        });
+    </script>
+
+    <script src="./js/script.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,30 @@
+version: '4.28' # docker version
+services: # dịch vụ
+  www: # dịch vụ có tên là 'www', chứa web server và ứng dụng PHP.
+    image: php:8.1.10-apache # Sử dụng image PHP 8.1.10 kèm Apache để tạo container cho dịch vụ web.
+    volumes:
+      - "./:/var/www/html"
+      # Mount thư mục của dự án vào thư mục /var/www/html của container
+      # Đồng bộ hóa các tệp và thư mục của dự án với thư mục web của container.
+      # Đồng bộ hóa kết nối các thời gian thực 2 chiều giữa các container (vùng chứa) và máy chủ cục bộ.
+    ports:
+      - 8000:80
+      - 443:443
+  db: # Dịch vụ chứa cơ sở dữ liệu MySQL.
+    image: mysql:latest # Sử dụng image MySQL mới nhất để tạo container cho cơ sở dữ liệu.
+    environment: # Cài đặt các biến môi trường để cấu hình cơ sở dữ liệu MySQL.
+      - MYSQL_DATABASE=gamestore # Tên của cơ sở dữ liệu.
+      - MYSQL_USER=php_docker # Tên người dùng của cơ sở dữ liệu.
+      - MYSQL_PASSWORD=password # Mật khẩu của người dùng cơ sở dữ liệu.
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1 # Cho phép mật khẩu của người dùng cơ sở dữ liệu có thể trống.
+    volumes:
+      - "./database:/docker-entrypoint-initdb.d"
+      # Mount thư mục database của dự án vào thư mục /docker-entrypoint-initdb.d của container
+      # Đảm bảo rằng các tệp SQL trong thư mục database sẽ được chạy khi container khởi chạy để khởi tạo cơ sở dữ liệu.
+  phpmyadmin: # Dịch vụ chứa ứng dụng quản lý cơ sở dữ liệu PHPMyAdmin.
+    image: phpmyadmin/phpmyadmin # Sử dụng image PHPMyAdmin để tạo container cho ứng dụng PHPMyAdmin.
+    ports:
+      - 8080:80
+    environment: # Cài đặt các biến môi trường để cấu hình PHPMyAdmin.
+      - PMA_HOST=db # Địa chỉ của máy chủ cơ sở dữ liệu MySQL.
+      - PMA_PORT=3306 # Cổng của máy chủ cơ sở dữ liệu MySQL.
